@@ -8,8 +8,8 @@
 		<version>2.2.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.greatwideweb.sandbox.spring</groupId>
-	<artifactId>springboot-sandbox</artifactId>
+	<groupId>com.greatwideweb.springsandbox</groupId>
+	<artifactId>spring-sandbox</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-sandbox</name>
 	<description>Demo project for Spring Boot</description>

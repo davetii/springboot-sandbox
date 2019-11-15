@@ -1,4 +1,4 @@
-package com.greatwideweb.sandbox.spring;
+package com.greatwideweb.springsandbox;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
