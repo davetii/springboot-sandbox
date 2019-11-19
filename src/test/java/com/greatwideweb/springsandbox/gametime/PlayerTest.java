@@ -1,9 +1,6 @@
 package com.greatwideweb.springsandbox.gametime;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 
@@ -65,6 +62,18 @@ class PlayerTest {
         assertTimeoutPreemptively(Duration.ofMillis(1000), ()-> {
             p.longRunningMethod();
         });
+    }
+
+    @DisplayName("Assumptions with a failed condition, note it doesnt fail the test suite")
+    @Test
+    void testAssumptionWithFailedCondition() {
+        Assumptions.assumeTrue("Turner".equalsIgnoreCase(System.getenv("TurnerKey")));
+    }
+
+    @DisplayName("Assumptions with a success condition, note it reports itself as part of the test suite")
+    @Test
+    void testAssumptionWithSuccessCondition() {
+        Assumptions.assumeTrue("Turner".equalsIgnoreCase("Turner"));
     }
 
 }
