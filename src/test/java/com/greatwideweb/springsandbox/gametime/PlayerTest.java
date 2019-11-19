@@ -7,7 +7,7 @@ import java.time.Duration;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class PlayerTest implements PlayerTestBase{
+class PlayerTest implements PlayerTestInterface {
 
     Player p;
 
@@ -88,6 +88,13 @@ class PlayerTest implements PlayerTestBase{
         assertThat(p.getFirstName().length()).isBetween(2,10);
         assertThat(p.getFirstName().length()).isNotNegative();
         assertThat(p.getFirstName().length()).isNotZero();
+    }
+
+    @RepeatedTest(value = 10, name= "{displayName} : {currentRepetition} - {totalRepetitions}")
+    @DisplayName("My Repeated Test")
+    @Test
+    void repeatTest() {
+        //
     }
 
 }

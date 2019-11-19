@@ -4,10 +4,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public interface PlayerTestBase {
+public interface PlayerTestInterface {
 
     @BeforeAll
     default void beforeClass() {
-        System.out.println("beforeClass from PlayerTestBase");
+        System.out.println("beforeClass from PlayerTestInterface");
     }
 }
