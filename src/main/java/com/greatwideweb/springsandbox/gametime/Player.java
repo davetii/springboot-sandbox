@@ -1,5 +1,7 @@
 package com.greatwideweb.springsandbox.gametime;
 
+import static java.lang.Thread.sleep;
+
 public class Player {
 
     private final String id;
@@ -22,5 +24,18 @@ public class Player {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String anExpectedError() {
+        throw new PlayerRuntimeException();
+    }
+
+    public String longRunningMethod() {
+        try {
+            sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "Hello from a long running thread";
     }
 }
