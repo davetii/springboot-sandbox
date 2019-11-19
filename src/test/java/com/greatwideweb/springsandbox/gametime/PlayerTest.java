@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
@@ -14,6 +15,8 @@ class PlayerTest {
     void setUp() {
         p = new Player("2323", "Andre", "Drummond");
     }
+
+
 
     @DisplayName("Ensure Constructor returns expected")
     @Test
@@ -74,6 +77,17 @@ class PlayerTest {
     @Test
     void testAssumptionWithSuccessCondition() {
         Assumptions.assumeTrue("Turner".equalsIgnoreCase("Turner"));
+    }
+
+    @DisplayName("Basic AssertJ example")
+    @Test
+    void basicAssertJPlayerNameExample() {
+        assertThat(p.getFirstName()).isEqualTo("Andre");
+        assertThat(p.getFirstName()).isNotEqualTo(p.getLastName());
+        assertThat(p.getFirstName()).isNotBlank();
+        assertThat(p.getFirstName().length()).isBetween(2,10);
+        assertThat(p.getFirstName().length()).isNotNegative();
+        assertThat(p.getFirstName().length()).isNotZero();
     }
 
 }
