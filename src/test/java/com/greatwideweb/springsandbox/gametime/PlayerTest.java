@@ -1,19 +1,27 @@
 package com.greatwideweb.springsandbox.gametime;
 
 import org.junit.jupiter.api.*;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class PlayerTest implements PlayerTestInterface {
 
     Player p;
 
+    @Mock
+    Player mockPlayer;
+
     @BeforeEach
     void setUp() {
         p = new Player("2323", "Andre", "Drummond");
+        MockitoAnnotations.initMocks(this);
     }
 
 
@@ -95,6 +103,19 @@ class PlayerTest implements PlayerTestInterface {
     @Test
     void repeatTest() {
         //
+    }
+
+    @Test
+    void testInlinePlayerMock() {
+        Player inlineMockPlayer = mock(Player.class);
+        when(inlineMockPlayer.getFirstName()).thenReturn("Jose");
+        assertThat(inlineMockPlayer.getFirstName()).isEqualTo("Jose");
+    }
+
+    @Test
+    void testAnnotatedPLayerMock() {
+        when(mockPlayer.getFirstName()).thenReturn("Dave");
+        assertThat(mockPlayer.getFirstName()).isEqualTo("Dave");
     }
 
 }
